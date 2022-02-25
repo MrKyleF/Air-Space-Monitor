@@ -1,6 +1,19 @@
 #Kyle R Fogerty
 #Flight Log Helper: Helper Functions For Flight Log
 
+#getAirline():
+##Input: Two Airline Codes
+##Output 1: Airline_Name, CallSign, Country_Flag, Comments, Full_Name
+##Output 2: None, None, None, None, None
+##Dependents: 'Code_Addresses/airline_codes.csv'
+
+#getAircraftName()
+##Input: Aircraft_Code, Skip Checking second row
+##Ouptut 1: Aircraft_Name
+##Output 2: "Raw: (input)"
+##Dependents: 'Code_Addresses/aircraft_codes.csv'
+
+#Imports
 import csv
 from FlightRadar24.api import FlightRadar24API
 

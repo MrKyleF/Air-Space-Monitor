@@ -25,9 +25,7 @@ class Zone:
             if found == False:
                 self.flights_in_zone.append(flight)
                 self.flights_flyLogs.append(FlightLog(flight=flight))
-        
-         
-        
+    
 
     def __init__(self, name, bounds):
         self.name = name                #Name Of Zone
