@@ -34,11 +34,15 @@ class ZoneManager:
         for i in range(0, len(self.zones)):
             self.zones[i].printFilteredLogs()
     
-    def runForLoops(self, loops: int, wait_time=30):
+    def tweetFlightLogsOnZones(self):
+        for i in range(0, len(self.zones)):
+            self.zones[i].tweetFlightLogs()
+    
+    def runForLoops(self, loops: int, wait_time=300):
         for loop in range(0, loops):
             self.runDataQueryOnZones()
             self.searchWithQueryFilterOnZones()
-            self.printFilteredLogsOnZones()
+            self.tweetFlightLogsOnZones()
             print("----------------------------------------------------------------------------------------------")
             print("")
             sleep(wait_time)

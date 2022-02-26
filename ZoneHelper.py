@@ -1,5 +1,6 @@
 #Kyle R Fogerty
 #Zone Helper: Helper Functions such as print
+from Tweeter import sendTweet
 
 def fixZoneName(zone_name):
     if zone_name == "europe":
@@ -34,5 +35,22 @@ def printFlightLogs(zone_name, logs):
             print("")
         print("")
         print("")
-        #f.close()
+       
+
+def tweetFlightLogs(zone_name, logs):
+    if len(logs) > 0:
+        print(fixZoneName(zone_name) + ":")
+        print("")
+        for flight in logs:
+            with open('temp_tweet.txt', 'w') as f:
+                f.write(fixZoneName(zone_name) + ":" + "\n" + "\n")
+                f.write(flight.full_name if flight.full_name != None else "Currently Unavailable")
+                f.write("\n")
+                f.write(flight.aircraft_name if flight.aircraft_name != None else "Currently Unavailable")
+                f.write("\n")
+                f.write("Registration: " + flight.flight.registration)
+                f.write("\n")
+                f.write("Coordinates: " + str(flight.logs[-1].coordinates))
+                f.close()
+            sendTweet()
 

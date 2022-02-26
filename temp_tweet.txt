@@ -1,0 +1,6 @@
+Africa:
+
+Air Mobility Command: United States Air Force
+Lockheed Martin C-130J Hercules
+Registration: 10-5716
+Coordinates: [36.58, 42.79]

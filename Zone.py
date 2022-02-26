@@ -46,6 +46,10 @@ class Zone:
     def printFilteredLogs(self):
         #Imported From Zone Helper
         printFlightLogs(self.name, self.filtered_in_zone)
+    
+    def tweetFlightLogs(self):
+        #Imported From Zone Helper
+        tweetFlightLogs(self.name, self.filtered_in_zone)
         
 
 
