@@ -14,11 +14,7 @@ twitter = Twython(
     access_token_secret
 )
 
-def removeTxt(file_name):
-    for i in range(0, len(file_name)):
-        if file_name[i] == ".":
-            return file_name[0:i]
-
+#Uses temp_tweet.txt as data to tweet
 def sendTweet():
     with open('temp_tweet.txt','r') as f:
         try:
