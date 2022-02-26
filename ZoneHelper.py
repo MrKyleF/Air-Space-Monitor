@@ -1,5 +1,5 @@
 #Kyle R Fogerty
-#Zone Helper: Helper Functions such as print
+#Zone Helper: Helper Functions such as print, tweet
 from Tweeter import sendTweet
 
 def fixZoneName(zone_name):
@@ -48,9 +48,11 @@ def tweetFlightLogs(zone_name, logs):
                 f.write("\n")
                 f.write(flight.aircraft_name if flight.aircraft_name != None else "Currently Unavailable")
                 f.write("\n")
-                f.write("Registration: " + flight.flight.registration)
+                f.write("Coord: " + str(flight.logs[-1].getCoordinates()))
+                f.write(" | Altitude: " + str(flight.logs[-1].getAltitude()))
+                f.write(" | Heading: " + str(flight.logs[-1].getHeading()))
                 f.write("\n")
-                f.write("Coordinates: " + str(flight.logs[-1].coordinates))
+                f.write("Registration: " + flight.flight.registration)
                 f.close()
             sendTweet()
 

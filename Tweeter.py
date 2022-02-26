@@ -21,8 +21,15 @@ def removeTxt(file_name):
 
 def sendTweet():
     with open('temp_tweet.txt','r') as f:
-        twitter.update_status(status=f.read())
-        f.close()
+        try:
+            twitter.update_status(status=f.read())
+            f.close()
+        except:
+            print("Error occurred tweeting:")
+            f.close()
+        else:
+            print("Unkown Error")
+            f.close()
 
 
 

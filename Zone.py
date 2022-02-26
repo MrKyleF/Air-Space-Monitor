@@ -28,10 +28,20 @@ class Zone:
                 self.flights_in_zone.append(flight)
                 self.flights_flyLogs.append(FlightLog(flight=flight))
     
+    #Remove Aircraft From Filter List Marked On the Ground
+    def checkIfFlightOnTheGround(self):
+        new_flights = []
+        for i in range(0, len(self.filtered_in_zone)):
+            if self.filtered_in_zone[i].logs[-1].on_ground == False:
+                new_flights.append(self.filtered_in_zone[i])
+        self.filtered_in_zone = new_flights
+    
     #Search For Certain Aspect In Aircraft
     def searchWithQueryFilter(self):
         if self.query_filter != None:
             self.filtered_in_zone = self.query_filter.checkAllFlightLogs(self.flights_flyLogs)
+            self.checkIfFlightOnTheGround()     #Remove Flights Marked as on ground
+    
 
     def __init__(self, name, bounds, query_filter=QueryFilter()):
         self.name = name                    #Name Of Zone
@@ -53,13 +63,4 @@ class Zone:
         
 
 
-zones = fr_api.get_zones()
-#Z = None
-for zone in zones:
-    bounds = fr_api.get_bounds(zones[zone])
-    Zone(name=zone, bounds=bounds)
-    #break
-
-#for x in range(0, 3):
-    #Z.queryData()
     
