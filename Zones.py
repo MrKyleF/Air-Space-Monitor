@@ -3,6 +3,7 @@
 
 from FlightLog import FlightLog
 from FlightRadar24.api import FlightRadar24API
+from QueryFilter import QueryFilter
 fr_api = FlightRadar24API()
 
 class Zone:
@@ -26,14 +27,20 @@ class Zone:
                 self.flights_in_zone.append(flight)
                 self.flights_flyLogs.append(FlightLog(flight=flight))
     
+    #Search For Certain Aspect In Aircraft
+    def searchWithQueryFilter(self):
+        if self.query_filter != None:
+            self.filtered_in_zone = self.query_filter.checkAllFlightLogs(self.flights_flyLogs)
 
-    def __init__(self, name, bounds):
-        self.name = name                #Name Of Zone
-        self.bounds = bounds            #Zone Bounds
-        self.flights_in_zone = []       #All Current Flights Transponding In Zone
-        self.flights_flyLogs = []       #Logs Of All Flights In Zone
-        self.queryData()                #Grab All Flights In Zone
-        self.filtered_in_zone = []      #List Of Current Flights Fitting Search Parameters
+    def __init__(self, name, bounds, query_filter=QueryFilter()):
+        self.name = name                    #Name Of Zone
+        self.bounds = bounds                #Zone Bounds
+        self.flights_in_zone = []           #All Current Flights Transponding In Zone
+        self.flights_flyLogs = []           #Logs Of All Flights In Zone
+        self.queryData()                    #Grab All Flights In Zone
+        self.filtered_in_zone = []          #List Of Current Flights Fitting Search Parameters
+        self.query_filter = query_filter    #Query Filter Currently Being Used, Can Be Set to None to be ignored
+        self.searchWithQueryFilter()        #Run Query to populate filtered_in_zone
         
 
 
