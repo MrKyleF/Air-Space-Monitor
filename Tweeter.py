@@ -28,7 +28,6 @@ def sendTweet():
             print("Error occurred tweeting:")
             f.close()
         else:
-            print("Unkown Error")
             f.close()
 
 
