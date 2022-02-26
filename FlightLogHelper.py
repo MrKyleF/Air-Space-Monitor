@@ -26,7 +26,7 @@ def getAirline(iata="N/A", icao="N/A"):
                 callsign = "N/A" if len(row) <= 3 else (row[3] if row[3] != '' else "N/A")                            #Call Sign From Database File
                 country_flag = "N/A" if len(row) <= 4 else (row[4] if row[4] != '' else "N/A")                        #Country Flag From Databse File
                 comments = "N/A" if len(row) <= 5 else (row[5] if row[5] != '' else "N/A")                            #Comments On Airline From Database File
-                full_name = str(airline_name + ": ") if airline_name != "N/A" else ""   
+                full_name = str(airline_name + (": " if comments != "N/A" else "")) if airline_name != "N/A" else ""   
                 full_name += (comments) if comments != "N/A" else ""                                                  #Constructed Full Name For Airline
                 return airline_name, callsign, country_flag, comments, full_name
 
