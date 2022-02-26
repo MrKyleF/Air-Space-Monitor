@@ -25,16 +25,14 @@ def fixZoneName(zone_name):
 
 def printFlightLogs(zone_name, logs):
     if len(logs) > 0:
-        with open(zone_name + '.txt', 'w') as f:
-            f.write(fixZoneName(zone_name) + ":" + "\n" + "\n")
-            print(fixZoneName(zone_name) + ":")
+        print(fixZoneName(zone_name) + ":")
+        print("")
+        for flight in logs:
+            print(flight.full_name if flight.full_name != None else "Currently Unavailable")
+            print(flight.aircraft_name if flight.aircraft_name != None else "Currently Unavailable")
+            print(flight.flight.registration)
             print("")
-            for flight in logs:
-                print(flight.full_name if flight.full_name != None else "Currently Unavailable")
-                print(flight.aircraft_name if flight.aircraft_name != None else "Currently Unavailable")
-                print(flight.flight.registration)
-                print("")
-            print("")
-            print("")
+        print("")
+        print("")
         #f.close()
 

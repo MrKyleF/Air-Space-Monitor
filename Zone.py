@@ -43,7 +43,8 @@ class Zone:
         self.query_filter = query_filter    #Query Filter Currently Being Used, Can Be Set to None to be ignored
         self.searchWithQueryFilter()        #Run Query to populate filtered_in_zone
 
-        #Testing
+    def printFilteredLogs(self):
+        #Imported From Zone Helper
         printFlightLogs(self.name, self.filtered_in_zone)
         
 
