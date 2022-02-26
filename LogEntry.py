@@ -9,6 +9,6 @@ class LogEntry:
         self.heading = flight.heading
         self.altitude = flight.altitude
         self.ground_speed = flight.ground_speed
-        self.time = self.time
+        self.time = flight.time
         self.on_ground = True if flight.on_ground == 1 else False
         self.veritcal_speed = flight.vertical_speed

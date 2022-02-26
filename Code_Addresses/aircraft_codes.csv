@@ -370,7 +370,10 @@ Y12,YN2,Harbin Yunshuji Y12
 YK40,YK4,Yakovlev Yak-40
 YK42,YK2,Yakovlev Yak-42
 YS11,YS1,NAMC YS-11
-Q4,,Northrop Grumman RQ-4 Global Hawk
-C17,,Boeing C-17 Globemaster III
-C5M,,Lockheed Martin C-5M Super Galaxy
-R135,,Boeing RC-135
+Q4,Q4,Northrop Grumman RQ-4 Global Hawk
+C17,C17,Boeing C-17 Globemaster III
+C5M,C5M,Lockheed Martin C-5M Super Galaxy
+R135,R135,Boeing RC-135
+P3,P3,Lockheed P-3 Orion
+NH90,NH90,NHIndustries NH90 (Helicopter)
+TEX2,TEX2,Beechcraft T-6 Texan II

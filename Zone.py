@@ -2,8 +2,9 @@
 #Zones: Each Airspaces Flights
 
 from FlightLog import FlightLog
-from FlightRadar24.api import FlightRadar24API
 from QueryFilter import QueryFilter
+from ZoneHelper import *
+from FlightRadar24.api import FlightRadar24API
 fr_api = FlightRadar24API()
 
 class Zone:
@@ -41,16 +42,19 @@ class Zone:
         self.filtered_in_zone = []          #List Of Current Flights Fitting Search Parameters
         self.query_filter = query_filter    #Query Filter Currently Being Used, Can Be Set to None to be ignored
         self.searchWithQueryFilter()        #Run Query to populate filtered_in_zone
+
+        #Testing
+        printFlightLogs(self.name, self.filtered_in_zone)
         
 
 
 zones = fr_api.get_zones()
-Z = None
+#Z = None
 for zone in zones:
     bounds = fr_api.get_bounds(zones[zone])
-    Z = Zone(name=zone, bounds=bounds)
-    break
+    Zone(name=zone, bounds=bounds)
+    #break
 
-for x in range(0, 3):
-    Z.queryData()
+#for x in range(0, 3):
+    #Z.queryData()
     

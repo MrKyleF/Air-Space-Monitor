@@ -11,13 +11,16 @@ class QueryFilter:
         
     def __init__(self, category="miltary"):
         self.category = category.lower() #Category Name (lowercased)
+        self.setKeywords()
     
     #Check if it is true that this flight log contains keywords else return false
     def checkSingleFlightLog(self, flight_log):
         if flight_log.comments == None and flight_log.airline_name == None:     #Check For none fields
             return False                                                        #Returns False, not in filter
+        lowercase_comments = flight_log.comments.lower()
+        lowercase_airline_name = flight_log.airline_name.lower()
         for keyword in range(0, len(self.keywords)):
-            if self.keywords[keyword] in flight_log.comments or self.keywords[keyword] in flight_log.airline_name:
+            if self.keywords[keyword] in lowercase_comments or self.keywords[keyword] in lowercase_airline_name:
                 return True                                                     #Returns True, in filter
 
         return False                                                            #Returns False, not in filter
