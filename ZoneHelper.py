@@ -39,8 +39,6 @@ def printFlightLogs(zone_name, logs):
 
 def tweetFlightLogs(zone_name, logs):
     if len(logs) > 0:
-        print(fixZoneName(zone_name) + ":")
-        print("")
         for flight in logs:
             with open('temp_tweet.txt', 'w') as f:
                 f.write(fixZoneName(zone_name) + ":" + "\n" + "\n")
@@ -52,7 +50,7 @@ def tweetFlightLogs(zone_name, logs):
                 f.write(" | Altitude: " + str(flight.logs[-1].getAltitude()))
                 f.write(" | Heading: " + str(flight.logs[-1].getHeading()))
                 f.write("\n")
-                f.write("Registration: " + flight.flight.registration)
+                f.write("Registration: #" + flight.flight.registration)
                 f.close()
             sendTweet()
 

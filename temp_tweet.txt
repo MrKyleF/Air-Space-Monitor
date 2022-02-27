@@ -1,6 +1,6 @@
 Africa:
 
 Air Mobility Command: United States Air Force
-Boeing C-17 Globemaster III
-Coord: 36.53, 43.9 | Altitude: 18000 ft | Heading: 307
-Registration: 10-0219
+Boeing KC-135 Stratotanker
+Coord: 27.08, 50.31 | Altitude: 29975 ft | Heading: 314
+Registration: 62-3518
