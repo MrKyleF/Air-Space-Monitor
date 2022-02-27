@@ -42,6 +42,8 @@ def tweetFlightLogs(zone_name, logs):
         for flight in logs:
             with open('temp_tweet.txt', 'w') as f:
                 f.write(fixZoneName(zone_name) + ":" + "\n" + "\n")
+                f.write(flight.flight.callsign if flight.flight.callsign != None else "Currently Unavailable")
+                f.write("\n")
                 f.write(flight.full_name if flight.full_name != None else "Currently Unavailable")
                 f.write("\n")
                 f.write(flight.aircraft_name if flight.aircraft_name != None else "Currently Unavailable")
@@ -50,8 +52,7 @@ def tweetFlightLogs(zone_name, logs):
                 f.write(" | Altitude: " + str(flight.logs[-1].getAltitude()))
                 f.write(" | Heading: " + str(flight.logs[-1].getHeading()))
                 f.write("\n")
-                f.write("Registration: #" + flight.flight.registration)
-                f.write(" Log Number: " + str(len(flight.logs)))
+                f.write("Registration: " + flight.flight.registration)
                 f.close()
             sendTweet()
         return True

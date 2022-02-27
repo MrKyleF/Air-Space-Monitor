@@ -5,7 +5,7 @@ class QueryFilter:
     #Set Keywords that will be searched
     def setKeywords(self):
         if self.category == "miltary": 
-            self.keywords = ["force", "army","navy","unit "] #Keywords used to located miltary aircraft
+            self.keywords = ["force", "army","navy","unit ","squadron","special"] #Keywords used to located miltary aircraft
         else:
             self.keywords = []
         

@@ -1,6 +1,6 @@
-North Atlantic:
+Africa:
 
 Air Mobility Command: United States Air Force
 Boeing C-17 Globemaster III
-Coord: 62.74, -21.59 | Altitude: 29000 ft | Heading: 0
-Registration: 06-6154
+Coord: 26.12, 51.0 | Altitude: 35000 ft | Heading: 115
+Registration: #07-7176 Log Number: 2

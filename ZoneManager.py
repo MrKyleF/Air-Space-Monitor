@@ -38,13 +38,14 @@ class ZoneManager:
         for i in range(0, len(self.zones)):
             _ = self.zones[i].tweetFlightLogs()
     
-    def runOneZoneAtTime(self, wait_time=120):
+    def runOneZoneAtTime(self, wait_time=150):
         loop_count = 0
         while True:
             self.zones[loop_count % len(self.zones)].queryData()
             self.zones[loop_count % len(self.zones)].searchWithQueryFilter()
             if self.zones[loop_count % len(self.zones)].tweetFlightLogs() == True:
                 sleep(wait_time)
+            loop_count += 1
     
     def runForLoops(self, wait_time=600):
         while True:
@@ -56,4 +57,4 @@ class ZoneManager:
             sleep(wait_time)
 
 ZM = ZoneManager()
-ZM.runForLoops()
+ZM.runOneZoneAtTime()
