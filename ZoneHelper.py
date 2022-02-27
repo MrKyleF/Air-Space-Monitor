@@ -51,6 +51,10 @@ def tweetFlightLogs(zone_name, logs):
                 f.write(" | Heading: " + str(flight.logs[-1].getHeading()))
                 f.write("\n")
                 f.write("Registration: #" + flight.flight.registration)
+                f.write(" Log Number: " + str(len(flight.logs)))
                 f.close()
             sendTweet()
+        return True
+    else:
+        return False
 

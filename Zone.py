@@ -59,7 +59,7 @@ class Zone:
     
     def tweetFlightLogs(self):
         #Imported From Zone Helper
-        tweetFlightLogs(self.name, self.filtered_in_zone)
+        return tweetFlightLogs(self.name, self.filtered_in_zone)
         
 
 

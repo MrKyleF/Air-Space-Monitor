@@ -21,7 +21,7 @@ def sendTweet():
             twitter.update_status(status=f.read())
             f.close()
         except:
-            print("Error occurred tweeting:")
+            print("Error occurred tweeting")
             f.close()
         else:
             f.close()
