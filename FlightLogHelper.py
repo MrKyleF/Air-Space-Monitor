@@ -28,8 +28,9 @@ def getAirline(iata="N/A", icao="N/A"):
                 comments = "N/A" if len(row) <= 5 else (row[5] if row[5] != '' else "N/A")                            #Comments On Airline From Database File
                 full_name = str(airline_name + (": " if comments != "N/A" else "")) if airline_name != "N/A" else ""   
                 full_name += (comments) if comments != "N/A" else ""                                                  #Constructed Full Name For Airline
+                csvfile.close()
                 return airline_name, callsign, country_flag, comments, full_name
-
+    csvfile.close()
     return None, None, None, None, None
 
 def getAircraftName(aircraft_code = "N/A", skip_second_check=False):
@@ -39,14 +40,17 @@ def getAircraftName(aircraft_code = "N/A", skip_second_check=False):
             # Beed to check row 1 first
             if (row[1] == aircraft_code and row[1] != "N/A" ): # or (row[1] == aircraft_code and row[1] != "N/A"):
                 aircraft_name = row[2] if row[2] != '' else "N/A"
+                csvfile.close()
                 return aircraft_name
+        csvfile.close()
     with open('Code_Addresses/aircraft_codes.csv', newline='') as csvfile:
         csv_reader = csv.reader(csvfile, delimiter=',', quotechar='|')
         for row in csv_reader:
             # Beed to check row 1 first
             if (row[0] == aircraft_code and row[0] != "N/A" ): # or (row[1] == aircraft_code and row[1] != "N/A"):
                 aircraft_name = row[2] if row[2] != '' else "N/A"
+                csvfile.close()
                 return aircraft_name
         
-    
+        csvfile.close()
     return "Raw: " + aircraft_code                           #Aircraft Not Found In Database File, Return Input With Raw Prefix

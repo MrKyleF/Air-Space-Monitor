@@ -55,6 +55,3 @@ class ZoneManager:
             print("----------------------------------------------------------------------------------------------")
             print("")
             sleep(wait_time)
-
-ZM = ZoneManager()
-ZM.runOneZoneAtTime()
